@@ -18,8 +18,8 @@
        <div class="regist-container" @click="changeInterface">
          <span class='regist'>注册</span>
        </div>
-       <div class="action-container">
-         <span>提交</span>
+       <div class="action-container" @click='handlerLogin'>
+         <span>登录</span>
        </div>
      </div>
    </div>
@@ -41,8 +41,8 @@
        <div class="regist-container" @click="changeInterface">
          <span class='regist'>登录</span>
        </div>
-       <div class="action-container">
-         <span>提交</span>
+       <div class="action-container" >
+         <span>注册</span>
        </div>
      </div>
    </div>
@@ -50,9 +50,16 @@
 </template>
 <script lang="ts" setup>
 import {ref} from 'vue'
+import axios from 'axios'
   let isActive=ref<Boolean>(true)
   const changeInterface= ():void=>{
     isActive.value=!isActive.value
+  }
+  const handlerLogin=():void=>{
+    axios.get('/api/login')
+    .then((res)=>{
+      console.log(res,'res')
+    })
   }
 </script>
 <style lang="scss">

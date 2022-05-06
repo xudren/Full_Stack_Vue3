@@ -2,6 +2,10 @@ import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import path from 'path'
+import OptimizationPersist from 'vite-plugin-optimize-persist'
+import PkgConfig from 'vite-plugin-package-config'
+import compressPlugin from 'vite-plugin-compression'
+
 // import dotenv from 'dotenv' //在node中读取环境变量
 // import * as fs from 'fs'
 // fs:typeof fs
@@ -24,7 +28,25 @@ export default defineConfig(({ mode, command }) => {
   // console.log(env, mode, command, 'fs');
   return {
     base: env === 'development' ? "./" : "/",
-    plugins: [vue(), vueJsx()],
+    plugins: [
+      vue(),
+      vueJsx(),
+      PkgConfig(),
+      OptimizationPersist(),
+      compressPlugin()
+    ],
+    server: {
+      port: 8080,
+      proxy: {
+        '/api': {
+          target: 'http://localhost:3000/',
+          changeOrigin: true
+          // pathRewrite: {
+          //
+          // }
+        }
+      }
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src/'),
