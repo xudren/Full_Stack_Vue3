@@ -6,8 +6,8 @@ let user: User = {
   username: 'xudren',
   password: "rxd0417"
 }
-let login = () => {
-  new Promse((resolve) => {
+let login = <T>(): Promise<T> => { //类似java的泛型
+  return new Promise((resolve: any) => {
     setTimeout(() => {
       resolve({
         username: "大飞机",
@@ -35,8 +35,8 @@ export const loginStore = defineStore(Names.TEST, {
     setCurrent() {
       this.current++
     },
-    async setUser(): void {
-      const result = await login()
+    async setUser(): Promise<void> {
+      const result = await login<User>()//
       this.user = result
     }
   }

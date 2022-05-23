@@ -2,8 +2,9 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './components/HelloWorld.vue'
-import {loginStore} from './store'
-const Test=loginStore()
+
+import { loginStore } from './store'
+const Test = loginStore()
 </script>
 
 <template>
@@ -12,10 +13,10 @@ const Test=loginStore()
     <router-view />
   </keep-alive> -->
   <router-view v-slot="{ Component }">
-  <keep-alive>
-    <component :is="Component" />
-  </keep-alive>
-</router-view>
+    <keep-alive>
+      <component :is="Component" />
+    </keep-alive>
+  </router-view>
 </template>
 
 <style>

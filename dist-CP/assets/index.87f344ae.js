@@ -1,0 +1,1 @@
+import{o,b as a}from"./index.8a91187e.js";var _=(e,r)=>{const t=e.__vccOpts||e;for(const[n,c]of r)t[n]=c;return t};const s={};function f(e,r){return o(),a("div",null,"index\u9875\u9762")}var d=_(s,[["render",f]]);export{d as default};

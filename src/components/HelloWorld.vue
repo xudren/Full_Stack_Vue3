@@ -1,16 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 // import LoadingDemo from './Test'
-import {Message} from './Test'
+import { Message } from './Test'
 
 
 // import {Message} from './render_createVnode'
 defineProps<{ msg: string }>()
-
+/**
+ * 
+ */
 const count = ref<Number>(0)
-const showToast=():void=>{
+const showToast = (): void => {
   console.log(1)
-  Message({ type: 'error', text: '登录失败' },'div')
+  Message({ types: 'error', text: '登录失败' }, 'div')
 }
 </script>
 
@@ -21,5 +23,4 @@ const showToast=():void=>{
 </template>
 
 <style scoped>
-
 </style>

@@ -1,0 +1,1 @@
+import{d as o,a as n,o as t,c as a,u as _,_ as r}from"./index.8a91187e.js";const u=o({setup(s){const e=n(()=>r(()=>import("./loginPage.2d7d7293.js"),["assets/loginPage.2d7d7293.js","assets/loginPage.38f3b77d.css","assets/index.8a91187e.js","assets/index.f70a8117.css"]));return(c,p)=>(t(),a(_(e)))}});export{u as default};

@@ -6,11 +6,11 @@ type routerType = RouteRecordRaw & {
 const routes: Array<routerType> = [
   {
     path: "/",
-    component: () => import(/*webpackChunkName:'login'*/'@/view/login')
+    component: () => import(/*webpackChunkName:'login'*/'@/view/login.vue')
   },
   {
     path: "/index",
-    component: () => import(/*webpackChunkName:'login'*/'@/view/index')
+    component: () => import(/*webpackChunkName:'login'*/'@/view/index.vue')
   }
 ]
 

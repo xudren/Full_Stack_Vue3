@@ -15,13 +15,17 @@ const LoadingDemo = defineComponent({
     return render
   }
 })
+type message = {
+  types: String,
+  text: String
+}
 /**
  * 
  * @param param0 类型和文字
  * @param ref    父元素的dom。还可以有第三个参数 就是挂载处
  */
-export function Message({ type, text }, ref): void {
-  const messageVNode = createVNode(LoadingDemo, { type, text })
+export function Message({ types, text }: message, ref: string): void {
+  const messageVNode = createVNode(LoadingDemo, { types, text })
   const divContainer = document.createElement(ref)
   // 添加到容器中
   render(messageVNode, divContainer)  //将虚拟的dom变为真正的dom

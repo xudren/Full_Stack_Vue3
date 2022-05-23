@@ -33,8 +33,35 @@ export default defineConfig(({ mode, command }) => {
       vueJsx(),
       PkgConfig(),
       OptimizationPersist(),
-      compressPlugin()
+      compressPlugin({
+        verbose: true,
+        disable: false,
+        threshold: 10240,
+        algorithm: 'gzip',
+        ext: '.gz'
+      })
     ],
+    build: {
+      brotliSize: false,//启用/禁用 brotli 压缩大小报告。压缩大型输出文件可能会很慢，因此禁用该功能可能会提高大型项目的构建性能。
+      chunkSizeWarningLimit: 500,//大小警告的限制（以 kbs 为单位）
+      outDir: "dist-" + loadEnv(mode, process.cwd()).VITE_APP_NAME, //打包名称
+      terserOptions: {
+        compress: { //处理打包去掉console.log
+          drop_console: true,
+          drop_debugger: true
+        }
+      }
+      // rollupOptions: {
+      //   output: {
+      //     manualChunks: {
+      //       'ant-design-vue': ['ant-design-vue'],
+      //       'vue-i18n': ['vue-i18n'],
+      //       'nprogress': ['nprogress'],
+      //     }
+      //   }
+      //  }
+    },
+
     server: {
       port: 8080,
       proxy: {
